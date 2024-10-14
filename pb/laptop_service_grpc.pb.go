@@ -11,7 +11,6 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // LaptopServiceClient is the client API for LaptopService service.
@@ -42,7 +41,7 @@ func (c *laptopServiceClient) CreateLaptop(ctx context.Context, in *CreateLaptop
 }
 
 func (c *laptopServiceClient) SearchLaptop(ctx context.Context, in *SearchLaptopRequest, opts ...grpc.CallOption) (LaptopService_SearchLaptopClient, error) {
-	stream, err := c.cc.NewStream(ctx, &LaptopService_ServiceDesc.Streams[0], "/techschool.pcbook.LaptopService/SearchLaptop", opts...)
+	stream, err := c.cc.NewStream(ctx, &_LaptopService_serviceDesc.Streams[0], "/techschool.pcbook.LaptopService/SearchLaptop", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +73,7 @@ func (x *laptopServiceSearchLaptopClient) Recv() (*SearchLaptopResponse, error) 
 }
 
 func (c *laptopServiceClient) UploadImage(ctx context.Context, opts ...grpc.CallOption) (LaptopService_UploadImageClient, error) {
-	stream, err := c.cc.NewStream(ctx, &LaptopService_ServiceDesc.Streams[1], "/techschool.pcbook.LaptopService/UploadImage", opts...)
+	stream, err := c.cc.NewStream(ctx, &_LaptopService_serviceDesc.Streams[1], "/techschool.pcbook.LaptopService/UploadImage", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +107,7 @@ func (x *laptopServiceUploadImageClient) CloseAndRecv() (*UploadImageResponse, e
 }
 
 func (c *laptopServiceClient) RateLaptop(ctx context.Context, opts ...grpc.CallOption) (LaptopService_RateLaptopClient, error) {
-	stream, err := c.cc.NewStream(ctx, &LaptopService_ServiceDesc.Streams[2], "/techschool.pcbook.LaptopService/RateLaptop", opts...)
+	stream, err := c.cc.NewStream(ctx, &_LaptopService_serviceDesc.Streams[2], "/techschool.pcbook.LaptopService/RateLaptop", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -174,8 +173,8 @@ type UnsafeLaptopServiceServer interface {
 	mustEmbedUnimplementedLaptopServiceServer()
 }
 
-func RegisterLaptopServiceServer(s grpc.ServiceRegistrar, srv LaptopServiceServer) {
-	s.RegisterService(&LaptopService_ServiceDesc, srv)
+func RegisterLaptopServiceServer(s *grpc.Server, srv LaptopServiceServer) {
+	s.RegisterService(&_LaptopService_serviceDesc, srv)
 }
 
 func _LaptopService_CreateLaptop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -269,10 +268,7 @@ func (x *laptopServiceRateLaptopServer) Recv() (*RateLaptopRequest, error) {
 	return m, nil
 }
 
-// LaptopService_ServiceDesc is the grpc.ServiceDesc for LaptopService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LaptopService_ServiceDesc = grpc.ServiceDesc{
+var _LaptopService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "techschool.pcbook.LaptopService",
 	HandlerType: (*LaptopServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

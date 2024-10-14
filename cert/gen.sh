@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rm *.pem
 
 # 1. Generate CA's private key and self-signed certificate

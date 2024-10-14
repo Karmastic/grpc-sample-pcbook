@@ -384,12 +384,14 @@
         "gpus": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/pcbookGPU"
           }
         },
         "storages": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/pcbookStorage"
           }
         },
@@ -525,14 +527,11 @@
     "protobufAny": {
       "type": "object",
       "properties": {
-        "typeUrl": {
+        "@type": {
           "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "format": "byte"
         }
-      }
+      },
+      "additionalProperties": {}
     },
     "rpcStatus": {
       "type": "object",
@@ -547,6 +546,7 @@
         "details": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
         }
